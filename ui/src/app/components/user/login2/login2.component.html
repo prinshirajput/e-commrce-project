@@ -1,0 +1,57 @@
+<section class="container forms">
+    <div class="form login">
+        <div class="form-content">
+       
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+             <span style="color: red;">{{msg}}</span>   
+                <div class="field input-field">
+                    <input id="email" type="email" placeholder="Enter your email address" formControlName="email"
+                      >
+                    <div *ngIf="submitted && fc['email'].errors" style="margin-bottom: 200px;">
+                        <span style="color: red;" *ngIf="fc['email'].hasError('required')">Email Address is
+                            required</span>
+                        <span style="color: red;" *ngIf="fc['email'].hasError('email')">Invalid Email Address</span>
+                    </div>
+                </div>
+
+                <div class="field input-field">
+                    <input id="password" type="password" placeholder="Enter password" formControlName="password"
+                      >
+                    <div *ngIf="submitted && fc['password'].hasError('required')">
+                        <div style="color: red;" *ngIf="fc['password'].hasError('required')"> password is required
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-link">
+                    <a href="#" class="forgot-pass">Forgot password?</a>
+                </div>
+
+                <div class="field button-field">
+                    <button>Login</button>
+                </div>
+            </form>
+
+            <div class="form-link">
+                     <!-- <span>Don't have an account? <router-link to="/signup" class="link signup-link">Signup</router-link></span> -->
+                     <!-- <span>Don't have an account? <a [routerLink]="['/siginup']" class="link signup-link">Signup</a></span> -->
+                     <span>Don't have an account? <a  class="link signup-link" routerLink="/signup"> Signup</a></span>
+
+
+
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+       
+
+        <div class="media-options">
+            <a href="#" class="field google">
+                <img src="assets/images/user/google.png" alt="" class="google-img">
+                <span>Login with Google</span>
+            </a>
+        </div>
+
+    </div>

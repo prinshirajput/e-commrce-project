@@ -1,0 +1,24 @@
+.dropdown-item {
+    color: black; /* Change the text color */
+    text-decoration: none; /* Remove underlines */
+    padding: 8px 16px; /* Adjust padding as needed */
+    display: block;
+  }
+
+  /* Hover state styles for the dropdown items */
+  .dropdown-item:hover {
+    background-color: blue; /* Change the background color on hover */
+    color: white; /* Change the text color on hover */
+  }
+  .dropdown-menu{
+    background-color: rgb(180, 180, 185);
+  }
+  .fixed-top-bar {
+  
+    top: 10;
+    width: 100%;
+    z-index: 1000; /* Set a higher z-index to make sure it appears above other elements */
+    background-color: #fff; /* Add your desired background color */
+  
+}
+

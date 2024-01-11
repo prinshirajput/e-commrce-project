@@ -1,0 +1,64 @@
+.sidenav {
+  width: 330px;
+  height: 500px;
+  position: fixed;
+  z-index: 1;
+  right: 10px;
+  /* Adjust this value as needed */
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+
+.custom-image {
+  height: 200px;
+  min-width: 1px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* mahima */
+.price_detail {
+  font-size: 25px;
+  border-bottom: 1px solid grey;
+  display: block;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  font-weight: 20px;
+  color: grey;
+  min-height: 47px;
+  border-radius: 2px 2px;
+}
+
+.font_price {
+  font-size: 16px;
+  -webkit-justify-content: space-between;
+  display: flex;
+}
+
+.manage_height {
+  padding: 0 24px;
+  line-height: 3.0;
+}
+
+.background_manage {
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+stext-103 {
+  font-family: Poppins-Regular;
+  font-size: 25px;
+  line-height: 1.466667;
+}
+
+.quick_view{
+  min-width: 80px;
+  height:40px;
+  font-size: 10px;
+  margin-right:12px
+}

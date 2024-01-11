@@ -1,0 +1,147 @@
+<!-- <app-nav></app-nav> -->
+<br><br><br><br>
+<div>
+<div class="col-12">
+  <div class="row">
+    <div class="col-12 col-lg-9 isotope-grid">
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women rounded" *ngFor="let img of imges">
+          <div class="block2">
+            <div class="block2-pic hov-img0">
+              <!-- <img [src]="'http://localhost:6001' + img" alt="{{ img.someAltText }}" height="400px" min-width="5px"> -->
+              <img    [src]="'http://localhost:6001' + img" alt="{{ img.someAltText }}" class="custom-image ">
+              <!-- <a [routerLink]="['/detail', img,img._id]"
+              
+                class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1 quick_view">
+                View
+              </a> -->
+              <a 
+              
+                class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1 quick_view">
+                View
+              </a>
+              <br><br><br>
+              <button (click)="remove_item(img)" style="background-color: #e0e0e0;"><b>REMOVE</b></button>
+
+            </div>
+
+            <div class="block2-txt flex-w flex-t p-t-14">
+              <div class="block2-txt-child1 flex-col-l">
+                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                  {{ img.img_name }}
+                </a>
+
+                <span class="stext-105 cl3">
+                  {{ img.img_price }}
+                </span>
+              </div>
+
+              <!-- <div class="block2-txt-child2 flex-r p-t-3">
+                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                  <img class="icon-heart1 dis-block trans-04" src="assets/images/icons/icon-heart-01.png" alt="ICON">
+                  <img class="icon-heart2 dis-block trans-04 ab-t-l" src="assets/images/icons/icon-heart-02.png"
+                    alt="ICON">
+                </a>
+              </div> -->
+              <!-- your.component.html -->
+
+
+
+
+
+<div class="block2-txt-child2 flex-r p-t-3">
+  <a  class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" (click)="toggleLike()">
+    <img *ngIf="!isLiked" class="icon-heart1 dis-block trans-04" src="assets/images/icons/icon-heart-01.png" alt="ICON">
+    <img *ngIf="isLiked" class="icon-heart2 dis-block trans-04 ab-t-l blue-heart" src="assets/images/icons/icon-heart-02.png" alt="ICON" >
+  </a>
+</div>
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-12 col-lg-3">
+      <div class="sidenav">
+        <div>
+          <div class="background_manage">
+            <div class="price_detail">Price details</div>
+            <div class="manage_height">
+              <div class="font_price">
+                <div style="max-width: 68%;">
+                  <div>Price ({{totel_item}}items)</div>
+                </div>
+                <div><span>{{totel_price}}</span></div>
+              </div>
+              <div class="font_price">
+                <div style="max-width: 68%;">
+                  <div>Discount</div>
+                </div>
+                <div><span><span style="color: #388e3c;">− {{dis}}</span></span></div>
+              </div>
+              <div class="font_price">
+                <div style="max-width: 68%;">
+                  <div>Delivery Charges</div>
+                </div>
+                <div><span style=" text-decoration: line-through; ">₹400</span><span><span
+                      style="margin-left:2px;color:#388e3c">Free</span></span></div>
+              </div>
+              <div style="border-top: 1px dashed #e0e0e0;border-bottom: 1px dashed #e0e0e0;font-weight: 500">
+                <div class="font_price">
+                  <div style="max-width: 68%;">
+                    <div>Total Amount</div>
+                  </div>
+                  <div><span>
+                      <div>
+                        <div>
+                          <div>
+                            <div></div>
+                          </div>
+                          <div><span> {{Final_price}}</span></div>
+                        </div>
+                      </div>
+                    </span></div>
+                </div>
+              </div>
+              <div style="color:#388e3c">You will save ₹{{dis}} on this order</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="price-order-button" >Price Order</div> -->
+<div style="   
+
+position: sticky;
+top: 64px;
+bottom: 0;
+z-index: 2;
+-webkit-align-self: flex-start;
+-ms-flex-item-align: start;
+align-self: flex-start;
+">
+  <div style="background-color: rgb(245, 243, 243); height: 80px; width: 800px;"  >
+    <form method="post" action="https://www.flipkart.com/checkout/init?view=FLIPKART&amp;loginFlow=false"><input
+        type="hidden" name="domain" value="physical">
+      <button class="_2KpZ6l _2ObVJD _3AWRsL" style="color: white; background-color: #FB641C; height: 50px; width: 200px; margin-left: 730px; margin-top: 10px;"><span>Place
+          Order</span></button>
+    </form>
+  
+  </div>
+</div>
+
+</div>
+
+
+
+

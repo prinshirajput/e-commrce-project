@@ -1,0 +1,118 @@
+
+
+
+<br><br>
+<div>
+    <section class="container forms">
+        <div class="form login">
+            <div class="form-content">
+                <header>SignUp</header>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <span style="background-color: green; text-size-adjust: 50px;" >{{smsg}}</span>
+                    <span style="background-color: red; text-size-adjust: 50px;">{{fmsg}}</span>
+
+                    <div class="field input-field">
+                        <input name="fname" type="text" placeholder="first Name" formControlName="fname"
+                        
+                            (input)="onInputChange()">
+                            
+                        <div *ngIf="submitted && fc['fname'].errors">
+                            <div style="color: red;" *ngIf="fc['fname'].hasError('required')">fname is required</div>
+
+                        </div>
+                    </div>
+                    <div class="field input-field">
+                        <input name="lname" type="text" placeholder="lname Name" formControlName="lname"
+                            (input)="onInputChange()">
+                        <div *ngIf="submitted && fc['lname'].errors">
+                            <div style="color: red;" *ngIf="fc['lname'].hasError('required')">lname is required</div>
+
+                        </div>
+                    </div>
+                    <div class="field input-field">
+                        <input id="email" type="email" placeholder="Enter your email address" formControlName="email" (input)="onInputChange()">
+                        <div *ngIf="submitted && fc['email'].errors">
+                          <div *ngIf="fc['email'].hasError('required')" class="error-message">Email Address is required</div>
+                          <div *ngIf="fc['email'].hasError('email')" class="error-message">Invalid Email Address</div>
+                        </div>
+                      </div>
+                    <div class="field input-field">
+                        <input id="phone" type="text" placeholder="Enter your phone" formControlName="phone"
+                            (input)="onInputChange()">
+                        <div *ngIf="submitted && fc['phone'].errors">
+                            <div style="color: red;" *ngIf="fc['phone'].hasError('required')">Phone Number is required
+                            </div>
+                            <div style="color: red;" *ngIf="fc['phone'].hasError('pattern')">Invalid Phone Number</div>
+                        </div>
+                    </div>
+
+                    <div class="field input-field">
+                        <input id="password" type="password" placeholder="Enter password" formControlName="password"
+                            (input)="onInputChange()">
+                        <div *ngIf="submitted && fc['password'].hasError('required')">
+                            <div style="color: red;" *ngIf="fc['password'].hasError('required')"> password is required
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="field input-field">
+
+                        <input id="cpassword" type="password" placeholder="Confirm password" formControlName="cpassword"
+                            (input)="onInputChange()">
+
+                        <div *ngIf="submitted && (passwordMismatch|| fc['cpassword'].errors) ">
+
+                            <div style="color: red;" *ngIf="fc['cpassword'].hasError('required')">Confirm cpassword is
+                                required</div>
+                            <div *ngIf="passwordMismatch" style="color: red;">Passwords do not match</div>
+
+                        </div>
+                    </div>
+                      <div class="field input-field">
+                        <div class="radio-container">
+                          <span class="gender-title">Gender</span>
+                          
+                          <div class="category">
+                            <label for="dot-1">
+                              <input type="radio" formControlName="gender" value="male" id="dot-1">
+                              <span class="dot one"></span>
+                              <span class="gender">Male</span>
+                            </label>
+                            
+                            <label for="dot-2">
+                              <input type="radio" formControlName="gender" value="female" id="dot-2">
+                              <span class="dot two"></span>
+                              <span class="gender">Female</span>
+                            </label>
+                            
+                            <label for="dot-3">
+                              <input type="radio" formControlName="gender" value="other" id="dot-3">
+                              <span class="dot three"></span>
+                              <span class="gender">Other</span>
+                            </label>
+                          </div>
+                          
+                          <div *ngIf="submitted && fc['gender'].errors">
+                            <div class="admin-error-div" *ngIf="fc['gender'].errors['required']">Gender is required</div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="form-link">
+                        <a href="#" class="forgot-pass">Forgot password?</a>
+                    </div>
+                    <div class="field button-field">
+                        <button type="submit">Signup</button>
+                    </div>
+                </form>
+                <div class="form-link">
+                  
+                    <span>Don't have an account? <a [routerLink]="['/login']" class="link signup-link">SignIn</a></span>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="media-options">
+                <a href="#" class="field google">
+                    <img src="assets/images/user/google.png" alt="" class="google-img">
+                    <span>Login with Google</span>
+                </a></div>
+        </div>
