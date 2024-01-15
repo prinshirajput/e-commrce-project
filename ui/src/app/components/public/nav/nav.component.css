@@ -17,7 +17,7 @@
 
 /* Hover state styles for the dropdown items */
 .dropdown-item:hover {
-  background-color: blue;
+  background-color: rgb(245, 245, 253);
   color: white;
 }
 

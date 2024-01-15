@@ -1,0 +1,46 @@
+.center-text {
+    text-align: center;
+  }
+
+rounded-circle img-fluid
+{width: 15000px;
+}
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .radio-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .category {
+    display: flex;
+  }
+  
+  .dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 5px; /* Adjust this spacing as needed */
+  }
+  
+  .gender {
+    margin-right: 15px; /* Adjust this spacing as needed */
+  }
+  
+.set_bg{
+  margin-top: 30px;
+    margin-left: 70px;
+}
+.set_header
+{
+  margin-left: 10px;
+  width: 990px;
+
+}
+
+ 
+  

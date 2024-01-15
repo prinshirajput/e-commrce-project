@@ -29,7 +29,7 @@ toogle=false;
       this.image = params['image'];
       this.p_id = params['p_id'];
 
-     console.log(this.p_id)
+     console.log(this.p_id,this.image)
    
     });
     
@@ -69,8 +69,9 @@ toogle=false;
   {
 
     this.toogle=true
-    
-    localStorage.setItem('card_image', '/image/' + this.p_id);
+         localStorage.setItem('card_image',   this.image);
+
+    // localStorage.setItem('card_image', '/image/' + this.image);
     this.router.navigate(['user/card']);
 
   }

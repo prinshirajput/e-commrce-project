@@ -16,7 +16,7 @@
                             <div class="slick3 gallery-lb">
                                 <div class="item-slick3" data-thumb="assets/images/product-detail-01.jpg">
                                     <div class="wrap-pic-w pos-relative">
-                                 <img [src]="'http://localhost:6001/image/' + p_id"  height="400px" width="200px" alt="{{p_id}}">  
+                                 <img [src]="'http://localhost:6001' + this.image"  height="400px" width="200px" alt="{{p_id}}">  
 
                                         <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="'http://localhost:6001' + image">
                                             <i class="fa fa-expand"></i>
@@ -164,7 +164,7 @@
                         </div>
                         
                         <!-- <button type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"  [routerLink]="['/cart', image]"   > -->
-                            <button type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"  (click)="ADD_to_cart(p_id)" >
+                            <button type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"  (click)="ADD_to_cart(this.image)" >
                           Add to carts
                           <span></span>
                         </button>

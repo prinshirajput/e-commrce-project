@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../public/authservice/auth.service';
 import { Router } from '@angular/router';
 import { AdminServiceService } from '../Adminservice/admin-service.service';
+import {  NavigationEnd } from '@angular/router';
+
 @Component({
   selector: 'app-adminhome',
   templateUrl: './adminhome.component.html',
@@ -11,56 +13,68 @@ import { AdminServiceService } from '../Adminservice/admin-service.service';
 export class AdminhomeComponent implements OnInit{
   name:any;
   id:any;
+  showImage:any=true;
+  counter:any=0;
   constructor(private Admin:AdminServiceService,private route: ActivatedRoute,private authservice:AuthService,private router: Router)
   {
   }
 
   ngOnInit(): void {
-    // Access the route parameter 'id'
+  
+
+    this.checkUrl();
+  
+    // Subscribe to router events to handle changes
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        console.log("hi");
+  
+        // Set the flag based on the URL
+        this.checkUrl();
+      }
+    });
   this.name=localStorage.getItem("name")  
   this.id=localStorage.getItem("id")
+  this.router.events.subscribe((event) => {
+    
+    if (event instanceof NavigationEnd) {
+      this.showImage = event.url === '/admin'; // Set the flag based on the URL
+    }
+  });
   }
-
-  viewprofile()
-  {
-    this.router.navigateByUrl(`/viewprofile/${this.id}`);
-  }
+  // viewprofile(
+    
+  // )
+  // {
+  //   this.router.navigateByUrl(`/viewprofile/${this.id}`);
+  // }
+// signup()
+// {
+//  this.router.navigate(['/siginup'])
+// }
+// open_edit_page()
+// {
   
-  logout()
-  {
-    localStorage.clear()
-    this.router.navigateByUrl(`/home`);
-
-  }
-
-  gotoshop()
-  {
-    this.router.navigate(['/shop']),(error:any)=>{
-    };
-
-  }
-  gotoblog()
-  {
-    this.router.navigate(['/blog']),(error:any)=>{
-    };
-  }
-  gotoabout()
-  {
-    this.router.navigate(['/about']),(error:any)=>{
-
-  }
- 
+// }
+checkUrl() {
+  // Get the current URL from the Router service
+  const currentUrl = this.router.url;
+this.count()
+  // Check if the URL ends with '/user'
+  this.showImage = currentUrl.endsWith('/admin');
 }
-gotcontact()
+count()
 {
-  this.router.navigate(['/contact']),(error:any)=>{
+  console.log("-->",this.showImage)
 
-  }
+  this.counter++;
+  console.log("--->",this.counter)
 
 }
-signup()
+signOut()
 {
- this.router.navigate(['/siginup'])
+  localStorage.clear()
+  this.router.navigate(['/login'])
 }
 
 }

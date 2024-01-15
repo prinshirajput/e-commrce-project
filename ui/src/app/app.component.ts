@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   title = 'ui';
   showImage: boolean = true; // Initialize the flag
   constructor( private router: Router) { 
-      
   }
 
   ngOnInit() {

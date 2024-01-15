@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AdminServiceService {
+  private apiEndpoint = 'http://localhost:6001/user';
 
   constructor(private http: HttpClient) {}
     
@@ -16,4 +17,8 @@ export class AdminServiceService {
 
 
  }
+ get_all_users()
+ {
+  return this.http.get(`${this.apiEndpoint}/get_all`)
+}
 }

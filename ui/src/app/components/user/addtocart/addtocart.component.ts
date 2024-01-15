@@ -95,6 +95,7 @@ remove_item(img:any)
   }
   this.userservice.remove_item(u_id,img).subscribe((result2:any)=>{
 console.log(result2)
+
 if(result2.sucess=true)
 {
   window.location.reload()

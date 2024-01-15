@@ -1,0 +1,41 @@
+
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 col-lg-2">
+            <app-adminhome></app-adminhome>
+                </div>
+              
+          
+               <div class="col-12 col-lg-10">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                  <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 set_header" >
+                    <h6 class="text-white text-capitalize ps-3">Add Product </h6>
+                  </div>
+                </div>
+<form [formGroup]="loginForm" (submit)="loginFormSubmit(loginForm.value)" >
+    <label for="productName">Product Name:</label>
+    <input id="name" type="name" placeholder="Enter name" formControlName="name">
+ 
+    <label for="productPrice">Product Price:</label>
+    <input id="price" type="price" placeholder="Enter price" formControlName="price">
+
+    <!-- Product Category -->
+    <label for="category" >Product Category:</label>
+    <select id="category" type="category"  formControlName="category">
+        <option selected>Add Product</option>
+        <option value="women">Women's Clothing</option>
+        <option value="Watchs">Watchs</option>
+        <option value="Man">Man's Clothing</option>
+        <option value="Bag">Bages</option>
+        <option value="Shoes">Shoes</option>
+    </select>
+    
+    <!-- Product Images -->
+    <label for="productImages">Product Images:</label>
+    <input id="image" type="file" placeholder="PUT image" formControlName="image" (change)="onSelectedFile($event)"> 
+    <!-- Submit Button -->
+    <button class="button"  type="submit">Add Product</button>
+</form>
+</div>
+</div>
+</div>

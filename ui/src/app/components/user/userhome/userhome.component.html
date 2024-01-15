@@ -7,7 +7,7 @@
         <a href="#" class="flex-c-m trans-04 p-lr-25">
           Help & FAQs
         </a>
-        <div>
+        <!-- <div>
           
         <a style="background-color: black; color: wheat;" class="flex-c-m trans-04 p-lr-25" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" >{{name}}
           <ul class="dropdown-menu">
@@ -17,6 +17,14 @@
           </ul>
         
                   </a>
+      </div> -->
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+{{name}}        </button>
+        <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+          <li><a class="dropdown-item" (click)="viewprofile()">View Profile</a></li>
+          <li><a class="dropdown-item" (click)="logout()" l>LogOut</a></li>
+        </ul>
       </div>
         <a href="#" class="flex-c-m trans-04 p-lr-25">
           EN
@@ -68,24 +76,19 @@
           <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
             <i class="zmdi zmdi-search"></i>
           </div>
-          <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" [attr.data-notify]="item">
-            <i class="zmdi zmdi-shopping-cart" routerLink="/"></i>
+          <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" [attr.data-notify]="item"  routerLink="/user/card" >
+            <i class="zmdi zmdi-shopping-cart"  routerLink="/user/card"  ></i>
           </div>
-  
-          <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+          <a routerLink="/user/card" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
             <i class="zmdi zmdi-favorite-outline"></i>
           </a>
         </div>
       </nav>
     </div>	
-
- 
-
   <br><br>
   <div *ngIf="showImage">
     <app-img-produc></app-img-produc> 
     <app-fotter></app-fotter>
   </div>
-  
   <br>
   <router-outlet></router-outlet>

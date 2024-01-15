@@ -21,7 +21,9 @@ export class UserhomeComponent implements OnInit{
 
   ngOnInit(): void {
   
-
+    setInterval(() => {
+      this.updateName();
+    }, 1000);
   this.checkUrl();
 
   // Subscribe to router events to handle changes
@@ -44,12 +46,12 @@ export class UserhomeComponent implements OnInit{
     console.log("hii",this.name)
     // Access the route parameter 'id'
  
-    setTimeout(
-      ()=>{
-        this.item = localStorage.getItem("card");
-        this.item = JSON.parse(  this.item);
-      },1000
-         )
+    // setTimeout(
+    //   ()=>{
+    //     this.item = localStorage.getItem("card");
+    //     this.item = JSON.parse(  this.item);
+    //   },1000
+    //      )
   }
   viewprofile()
   {
@@ -99,5 +101,11 @@ checkUrl() {
   // Check if the URL ends with '/user'
   this.showImage = currentUrl.endsWith('/user');
   console.log("showImage ", this.showImage);
+}
+updateName()
+{
+
+  this.item = localStorage.getItem("card");
+        this.item = JSON.parse(  this.item);
 }
 }

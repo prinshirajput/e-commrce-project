@@ -1,91 +1,254 @@
-<div class="top-bar" >
-    <div class="content-topbar flex-sb-m h-full container">
-      <div class="left-top-bar">
-        Welcome to admin panel
+<div class="col-12" style="background-color: #bdadad;">
+  <div class="row">
+      <div class="col-12 col-lg-4">
+     
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+  <div class="sidenav-header">
+    <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+    <a class="navbar-brand m-0" >
+      <img src="assets/admin/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+      <span class="ms-1 font-weight-bold text-white">Admin Deshboard</span>
+    </a>
+  </div>
+  <hr class="horizontal light mt-0 mb-2">
+  <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link text-white "  routerLink="/admin">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10" >dashboard</i>
+          </div>
+
+  <span class="nav-link-text ms-1">Dashboard</span>
+</a>        
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white " routerLink="/admin/tabel">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">table_view</i>
+          </div>
+          <span class="nav-link-text ms-1">Tables</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white " routerLink="/admin/add_product">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">receipt_long</i>
+          </div>
+          <span class="nav-link-text ms-1">Add Product</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white " routerLink="/admin/show_product">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">view_in_ar</i>
+          </div>
+          <span class="nav-link-text ms-1">Show all product</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link text-white " routerLink="/admin/notification">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">notifications</i>
+          </div>
+          <span class="nav-link-text ms-1">Notifications</span>
+        </a>
+      </li>
+      <li class="nav-item mt-3">
+        <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white " routerLink="/admin/view_profile/{{id}}">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">person</i>
+          </div>
+          <span class="nav-link-text ms-1">Profile</span>
+        </a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link text-white ">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">logout</i>
+          </div>
+          <span class="nav-link-text ms-1" (click)="signOut()">Sign fOut</span>
+        </a>
+      </li> -->
+    
+      <li class="nav-item">
+        <a class="nav-link text-white " >
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">  <i class="material-icons opacity-10">logout</i></div>
+        <span   (click)="signOut()">Sigin Out</span>
+        </a>
+      </li> 
+     
+<!--       
+      <li class="nav-item">
+        <a class="nav-link text-white " href="../pages/sign-up.html">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">assignment</i>
+          </div>
+          <span class="nav-link-text ms-1">Sign Up</span>
+        </a>
+      </li> -->
+    </ul>
+  </div>
+  <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+    <div class="mx-3">
+     
+      <a class="btn bg-gradient-primary w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+    </div>
+  </div>
+</aside> 
+
+</div>
+<div class="col-12 col-lg-8"    *ngIf="showImage &&(counter==1||counter==0)">
+  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 set_header" >
+      <h6 class="text-white text-capitalize ps-3"> Welcome to Admin Panel</h6>
+
+    </div>
+  </div>
+  <div >
+  <div class="row mt-4">
+    <div class="col-lg-5 mb-lg-0 mb-4">
+      <div class="card z-index-2 mt-4">
+    <div class="card-body mt-n5 px-3">
+      <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1 mb-3">
+        <div class="chart">
+         <!-- <img src="assets/images/icons/icon-pay-05.png" height="200px" width="200px"> -->
+         <div style="background-color: white;">Welocme to admin panel......
+  .</div>
+          <canvas           id="chart-bars" class="chart-canvas" height="10"></canvas>
+        </div>
       </div>
-      <div class="right-top-bar flex-w h-full">
-        <a href="#" class="flex-c-m trans-04 p-lr-25">
-          Help & FAQs
-        </a>
-        <div>
-          
-        <a style="background-color: black; color: wheat;" class="flex-c-m trans-04 p-lr-25" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" >{{name}}
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" (click)="viewprofile()">View Profile</a></li>
-            <li><a class="dropdown-item" (click)="logout()" l>LogOut</a></li>
-         
-          </ul>
-        
-                  </a>
-      </div>
-        <a href="#" class="flex-c-m trans-04 p-lr-25">
-          EN
-        </a>
-        <a href="#" class="flex-c-m trans-04 p-lr-25">
-          USD
-        </a>
+      <h6 class="ms-2 mt-4 mb-0"> Active Users </h6>
+      <p class="text-sm ms-2"> (<span class="font-weight-bolder">+11%</span>) than last week </p>
+      <div class="container border-radius-lg">
+        <div class="row">
+          <div class="col-3 py-3 ps-0">
+            <div class="d-flex mb-2">
+              <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">groups</i>
+              </div>
+              <p class="text-xs my-auto font-weight-bold">Users</p>
+            </div>
+            <h4 class="font-weight-bolder">42K</h4>
+            <div class="progress w-75">
+              <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="col-3 py-3 ps-0">
+            <div class="d-flex mb-2">
+              <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-info text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">ads_click</i>
+              </div>
+              <p class="text-xs mt-1 mb-0 font-weight-bold">Clicks</p>
+            </div>
+            <h4 class="font-weight-bolder">1.7m</h4>
+            <div class="progress w-75">
+              <div class="progress-bar bg-dark w-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="col-3 py-3 ps-0">
+            <div class="d-flex mb-2">
+              <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">receipt</i>
+              </div>
+              <p class="text-xs mt-1 mb-0 font-weight-bold">Sales</p>
+            </div>
+            <h4 class="font-weight-bolder">399$</h4>
+            <div class="progress w-75">
+              <div class="progress-bar bg-dark w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="col-3 py-3 ps-0">
+            <div class="d-flex mb-2">
+              <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-danger text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">category</i>
+              </div>
+              <p class="text-xs mt-1 mb-0 font-weight-bold">Items</p>
+            </div>
+            <h4 class="font-weight-bolder">74</h4>
+            <div class="progress w-75">
+              <div class="progress-bar bg-dark w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    </div>  
-    
-    <!-- Topbar -->
-    
-    <div class="wrap-menu-desktop" class="t fixed-top-bar">
-      <nav class="limiter-menu-desktop container">
-      
-        <a href="#" class="logo">
-          <img src="assets/images/icons/logo-01.png" alt="IMG-LOGO">
-        </a>
-       
-        <div class="menu-desktop">
-          <ul class="main-menu">
-            <li class="active-menu">
-              <a href="index.html">Home</a>
+  </div>
+  
+    </div>
+    <div class="col-lg-7">
+      <div class="card z-index-2">
+    <div class="card-header pb-0">
+      <h6>Sales overview</h6>
+      <p class="text-sm">
+        <i class="fa fa-arrow-up text-success"></i>
+        <span class="font-weight-bold">4% more</span> in 2021
+      </p>
+    </div>
+    <div class="card-body p-3">
+      <div class="chart">
+        <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eaque, nisi sed error ipsam ut natus vero? Sequi reprehenderit fugit labore ut, corporis animi aperiam fugiat atque voluptatum ipsa officiis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum perferendis excepturi omnis dolorum. Quibusdam praesentium rerum minima neque nostrum autem, molestias sunt iure! Beatae ipsa at, culpa sequi, ullam dolorem porro sint quod itaque, fuga magni adipisci iusto quia unde. Libero vitae ipsa magnam, voluptatem dignissimos quasi ducimus unde, maiores, vero ullam dolore! Maxime provident vero consequuntur excepturi dolorum esse molestiae dolores sequi sunt! Odio dignissimos provident veritatis hic ad magni quisquam ipsum, eum dolores soluta fugit animi dolor et 
+          <canvas id="chart-line" class="chart-canvas" height="10">
+          
+          </canvas>
+
+      </div>
+    </div>
+  </div>
+  
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12">
+      <div id="globe" class="position-absolute end-0 top-10 mt-sm-3 mt-7 me-lg-7">
+        <canvas width="700" height="600" class="w-lg-100 h-lg-100 w-75 h-75 me-lg-0 me-n10 mt-lg-5"></canvas>
+      </div>
+    </div>
+  </div>
+  
+  
+                  <footer class="footer py-4  ">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-lg-between">
+        <div class="col-lg-6 mb-lg-0 mb-4">
+          <div class="copyright text-center text-sm text-muted text-lg-start">
+            © <script>
+              document.write(new Date().getFullYear())
+            </script>,
+            made with <i class="fa fa-heart"></i> by
+            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
+            for a better web.
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
             </li>
-    
-            <li>
-                <a (click)="gotoshop()"    >Shoping</a>
-                
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
             </li>
-    
-            <li class="label1" data-label1="hot">
-              <a href="shoping-cart.html">Features</a>
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
             </li>
-    
-            <li>
-              <a (click)="gotoblog()">Blog</a>
-            </li>
-    
-            <li>
-                <a (click)="gotoabout()">About</a>
-            </li>
-    
-            <li>
-              <a (click)="gotcontact()">Contact</a>
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
             </li>
           </ul>
-        </div>	
-    
-        <div class="wrap-icon-header flex-w flex-r-m">
-          <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-            <i class="zmdi zmdi-search"></i>
-          </div>
-    
-          <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-            <i class="zmdi zmdi-shopping-cart" routerLink="/"></i>
-          </div>
-    
-          <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-            <i class="zmdi zmdi-favorite-outline"></i>
-          </a>
         </div>
-      </nav>
-    </div>	
-    
-    
-    
-    <br><br>
-    <!-- <app-img-produc></app-img-produc> -->
-    
-    <app-fotter></app-fotter> 
-    
+      </div>
+    </div>
+  </footer>
+</div>
+              </div>
+</div>    
+</div>
+
+          <div >
+            <router-outlet></router-outlet>
+          </div>

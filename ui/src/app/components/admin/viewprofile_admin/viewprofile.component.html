@@ -1,0 +1,166 @@
+
+<br><br>
+<div class="col-12">
+  <div class="row">
+      <div class="col-12 col-lg-2">
+  <app-adminhome></app-adminhome>
+      </div>
+    
+
+     <div class="col-12 col-lg-10">
+      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 set_header" >
+          <h6 class="text-white text-capitalize ps-3">Edit user profile</h6>
+        </div>
+      </div>
+        <section style="background-color: #eee;" class="col-12 col-lg-10 set_bg" >
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+              <li class="center-text">Personal Information &nbsp;&nbsp;&nbsp;<span style="color: #2874f0;" *ngIf="!updateon"  (click)="editclick()">Edit</span></li>
+          </nav>
+        </div>
+      </div>
+  
+     <div class="row" >
+  
+                       <div class="col-lg-4">
+               <div class="card mb-4">
+               <div class="card-body text-center">
+                     <p>hello</p>
+                  <img class="thumb-lg img-circle bx-s" src="https://bootdey.com/img/Content/user_2.jpg" alt="">
+                  <h5 class="my-3">{{uname}}</h5>
+                 <p class="text-muted mb-1"></p>
+                <p class="text-muted mb-4"></p>
+                <div class="d-flex justify-content-center mb-2">
+               
+              </div>
+            </div>
+          </div>
+     
+        </div>
+       
+        <form class="col-lg-8" *ngIf="!updateon">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Full Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{uname}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{uemail}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">password</p>
+                </div>
+                <div class="col-sm-9">
+            <p class="text-muted mb-0">{{upassword}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Gender</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{ugender}}</p>
+                </div>
+              </div>
+              <hr>
+     
+            </div>
+          </div>
+    
+        </form>
+        <form class="col-lg-8" *ngIf="updateon" [formGroup]="updateForm">
+            <div class="card mb-4">
+              <div class="card-body">
+                <span style="color: red;">{{error}}</span>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label class="mb-0">Full Name</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input  type="text"   class="text-muted mb-0" placeholder="{{uname}}"
+                 [value]="uname" class="form-control"  name="name"
+                   formControlName="name"/>
+                    
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Email</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <input  type="text"  placeholder="{{uemail}}" class="text-muted mb-0"
+                    [value]="uemail" class="form-control"  name="email"
+                    formControlName="email"/>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">password</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <input  type="text"   placeholder="{{upassword}}" class="text-muted mb-0"
+                    [value]="upassword" class="form-control"  name="password"
+                    formControlName="password"/>
+                  </div>
+                </div>
+                <hr>
+               
+                <div class="field input-field">
+                    <div class="radio-container">
+                      <span class="gender-title" class="col-sm-9">Gender</span>
+                
+                      <div class="category">
+                        <label for="dot-1-update">
+                          <input type="radio" formControlName="gender" value="male" id="dot-1-update">
+                          <span class="dot"></span>
+                          <span class="gender">Male</span>
+                        </label>
+                
+                        <label for="dot-2-update">
+                          <input type="radio" formControlName="gender" value="female" id="dot-2-update">
+                          <span class="dot"></span>
+                          <span class="gender">Female</span>
+                        </label>
+                
+                        <label for="dot-3-update">
+                          <input type="radio" formControlName="gender" value="other" id="dot-3-update">
+                          <span class="dot"></span>
+                          <span class="gender">Other</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                
+                <hr>
+                <button style="background-color: green" (click)="onSubmit()">Save changes</button>
+              </div>
+            </div>
+   
+          </form>
+
+      </div>
+    </div>
+  </section> 
+  </div>
+   
+  </div>
+  </div>
