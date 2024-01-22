@@ -27,6 +27,7 @@ export class AddtocartComponent implements OnInit{
    this.isLiked = !this.isLiked;
  }
 ngOnInit(): void {
+ 
   this.c_image=localStorage.getItem('card_image')
   
   const data={
@@ -98,10 +99,34 @@ console.log(result2)
 
 if(result2.sucess=true)
 {
-  window.location.reload()
+  this.imges = this.imges.filter((f: any) => f !== img);
+this.totel_item--;
+this.alldata = this.alldata.filter((item:any) => item.image !== img);
+console.log(this.alldata)
 }
   }
   )
+  this.totel_price=0;
+  setTimeout(
+    ()=>{
+      for(let i in this.alldata)
+      {
+        
+       const price=parseFloat(this.alldata[i].img_price)
+       this.totel_price=this.totel_price+price
+      }
+      this.dis=this.totel_price*10/100
+      this.Final_price=this.totel_price-this.dis
+      this.userservice.set_no_of_card(this.totel_item)
+    }
+      ,1000)
+    
+  setTimeout(()=>{
+    const jsonString = JSON.stringify(this.totel_item);
+
+    localStorage.setItem('card', jsonString);
+  },500)
+ 
 }
 // remove_item(img: any) {
 //   this.imges.length=0;

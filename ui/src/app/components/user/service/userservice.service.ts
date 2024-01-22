@@ -79,4 +79,8 @@ get_no_of_carddara()
   return this.http.get(`http://localhost:6001/card/get_card_data`)
  
 }
+get_all_user()
+{
+  
+}
 }

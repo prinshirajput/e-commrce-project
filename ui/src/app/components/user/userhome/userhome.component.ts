@@ -14,6 +14,8 @@ export class UserhomeComponent implements OnInit{
   id:any;
   item:any;
   showImage=true;
+  likedata:any;
+  like=localStorage.getItem('like')
   constructor(private userservice:UserserviceService,private route: ActivatedRoute,private authservice:AuthService,private router: Router)
   {
     
@@ -107,5 +109,19 @@ updateName()
 
   this.item = localStorage.getItem("card");
         this.item = JSON.parse(  this.item);
+        this.likedata=localStorage.getItem('like')
+        if(this.likedata==0)
+        {
+           
+        }
+        else{
+
+        }
+
+        this.like=localStorage.getItem('like')
+}
+help()
+{
+  alert("this is not added now")
 }
 }

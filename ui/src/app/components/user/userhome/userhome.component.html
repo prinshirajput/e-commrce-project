@@ -4,7 +4,8 @@
         Free shipping for standard order over $100
       </div>
       <div class="right-top-bar flex-w h-full">
-        <a href="#" class="flex-c-m trans-04 p-lr-25">
+  
+        <a class="flex-c-m trans-04 p-lr-25" routerLink="/user/notification" style="color: wheat;">
           Help & FAQs
         </a>
         <!-- <div>
@@ -26,10 +27,10 @@
           <li><a class="dropdown-item" (click)="logout()" l>LogOut</a></li>
         </ul>
       </div>
-        <a href="#" class="flex-c-m trans-04 p-lr-25">
+        <a  class="flex-c-m trans-04 p-lr-25"  style="color: wheat;"  (click)="help()">
           EN
         </a>
-        <a href="#" class="flex-c-m trans-04 p-lr-25">
+        <a class="flex-c-m trans-04 p-lr-25" style="color: wheat;"  (click)="help()">
           USD
         </a>
       </div>
@@ -41,7 +42,7 @@
     <div class="wrap-menu-desktop" class="t fixed-top-bar">
       <nav class="limiter-menu-desktop container">
       
-        <a href="#" class="logo">
+        <a  class="logo">
           <img src="assets/images/icons/logo-01.png" alt="IMG-LOGO">
         </a>
        
@@ -79,7 +80,7 @@
           <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" [attr.data-notify]="item"  routerLink="/user/card" >
             <i class="zmdi zmdi-shopping-cart"  routerLink="/user/card"  ></i>
           </div>
-          <a routerLink="/user/card" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+          <a routerLink="/user/like" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" [attr.data-notify]="like">
             <i class="zmdi zmdi-favorite-outline"></i>
           </a>
         </div>

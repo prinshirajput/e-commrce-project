@@ -39,7 +39,10 @@ import { AddtocartComponent } from './addtocart/addtocart.component';
 import { ProdectdetailsComponent } from './prodectdetails/prodectdetails.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { FotterComponent } from './fotter/fotter.component';
-import { IMGPRODUCComponent } from './img-produc/img-produc.component';
+import { IMGPRODUCComponent2} from './img-produc/img-produc.component';
+import { NotificationuserComponent } from './notification/notification.component';
+import { LikeProductComponent } from './like-product/like-product.component';
+import { MakePaymentComponent } from './make-payment/make-payment.component';
 @NgModule({
   declarations: [
     UserhomeComponent,
@@ -47,8 +50,11 @@ import { IMGPRODUCComponent } from './img-produc/img-produc.component';
     AddtocartComponent,
     ProdectdetailsComponent,
     ViewprofileComponent,
-    IMGPRODUCComponent,
-    FotterComponent
+    IMGPRODUCComponent2,
+    FotterComponent,
+    NotificationuserComponent,
+    LikeProductComponent,
+    MakePaymentComponent
   ],
   imports: [
     CommonModule,

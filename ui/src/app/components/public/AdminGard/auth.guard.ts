@@ -6,11 +6,11 @@ import { AuthService } from '../authservice/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuardadmin implements CanActivate {
   constructor(private router: Router) {}
   canActivate(): boolean {
     {
-      if(localStorage.getItem('role')=='user')
+      if(localStorage.getItem('role')=='admin')
       {
         return true;
       }

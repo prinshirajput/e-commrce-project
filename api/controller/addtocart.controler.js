@@ -10,14 +10,10 @@ export const save_card_img = async (req, res) => {
     // console.log(obj);
 
     try {
-        // Check if a document with the same "u_id" already exists
         const existingCard = await cardModel.findOne({ u_id: obj.u_id ,card_image:obj.card_image});
         if (existingCard) {
-            // If a document with the same "u_id" exists, handle the case accordingly
-            return res.json({ success: false, status: 501, msg: 'A card with this user ID already exists.' });
+            return res.json({ success: false, status: 501, msg: 'A card  with this user ID already exists.' });
         }
-
-        // If no existing document found, save the new card
         const cardModelInstance = new cardModel(obj);
         let result = await cardModelInstance.save();
 
@@ -25,6 +21,7 @@ export const save_card_img = async (req, res) => {
     } catch (err) {
         console.error(err);
         return res.json({ success: false, status: 500, msg: 'Internal server error.' });
+    
     }
 };
 

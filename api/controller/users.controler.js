@@ -150,39 +150,18 @@ export const updateUser = async (req, res) => {
 
   }
 }
-//  export const deleteuser=async(req,res)=>{
-//      console.log(req.body)
- 
-//      var condition_object=req.body;
-//      var user=await UserSchemaModel.find(condition_object)
-//      if(user.length!==0)
-//      {
-//          let result=await UserSchemaModel.deleteOne(condition_object)
-//          if(result)
-//          return res.status(201).json({"msg":"recorde delete"})
-//      else
-//      return res.status(500).json({"msg":"server error"})
- 
-//      }
-//      else
-//      return res.status(404).json({"msg":"recorde not found"})
- 
-//  }
 
-//   export const loginUser=async (req,res)=>{
-//      console.log("login work")
-//        var UserDetails=req.body;
-//        UserDetails={...UserDetails,"status":1}
-//        var userlist=await UserSchemaModel.find(UserDetails)
-//        if(userlist.length!=0)
-//        {
-//          let payload={"subject":userlist[0].name}
-//          let key=rs.generate();
-//          let token =jwt.sign(payload,key)
-//         return res.status(201).json({"token":token,"UserDetails":UserDetails[0]})
-//        }
-//        else
-//        {
-//          return res.status(500).json({"token":"error"})
-//        }
-//   }
+
+export const get_all = async (req, res) => {
+  try {
+      // const data = await manageProjectModel.find({}).sort({ alias: 1 }).lean().exec();
+      const data = await UserSchemaModel.find({}).lean().exec();
+
+      return res.json({ data: data, success: true});
+  }
+  catch (err) {
+      // return res.json({ success: false, status: status.INVALIDSYNTAX, err: err, msg: 'Get Users failed.' });
+      return res.json({ success: false, err: err, msg: 'Get Project failed.' });
+
+  }
+}

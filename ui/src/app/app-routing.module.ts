@@ -20,13 +20,21 @@ import { NotificationComponent } from './components/admin/notification/notificat
 import { DeshboredComponent } from './components/admin/deshbored/deshbored.component';
 import { AuthGuard } from './components/public/Gard/auth.guard';
 import { AppComponent } from './app.component';
+import { AuthGuardadmin } from './components/public/AdminGard/auth.guard';
+import { IMGPRODUCComponent2 } from './components/user/img-produc/img-produc.component';
+import { NotificationuserComponent } from './components/user/notification/notification.component';
+import { MakePaymentComponent } from './components/user/make-payment/make-payment.component';
+import { LikeProductComponent } from './components/user/like-product/like-product.component';
 const routes: Routes = [
   { path: 'user',canActivate:[AuthGuard], component: UserhomeComponent,
 children:[
- 
-  { path: 'shop',canActivate:[AuthGuard], component: IMGPRODUCComponent },
+  { path: 'notification', canActivate:[AuthGuard],component:  NotificationuserComponent},
+{  path:'payment',canActivate:[AuthGuard],component:MakePaymentComponent},
+  { path: 'shop',canActivate:[AuthGuard], component: IMGPRODUCComponent2 },
   { path: 'about', canActivate:[AuthGuard],component: AboutComponent },
   { path: 'blog',canActivate:[AuthGuard], component: BlogComponent },
+  { path: 'like',canActivate:[AuthGuard], component: LikeProductComponent },
+
   { path: 'contact',canActivate:[AuthGuard], component: ContactComponent },
   {path:'view_profile',canActivate:[AuthGuard],component:ViewprofileComponent},
   // {path:'prodect/:image/:p_id',canActivate:[AuthGuard],component:ProdectdetailsComponent},
@@ -34,21 +42,17 @@ children:[
 
   { path: 'card', canActivate:[AuthGuard],component: AddtocartComponent },
 ] },
-  { path: 'admin',canActivate:[AuthGuard],component: AdminhomeComponent,
+  { path: 'admin',canActivate:[AuthGuardadmin],component: AdminhomeComponent,
   children:[
-    {path:'',canActivate:[AuthGuard],component:AdminhomeComponent},
+    {path:'',canActivate:[AuthGuardadmin],component:AdminhomeComponent},
     {path:'tabel',component:TabelComponent},
-    {path:'view_profile/:id',canActivate:[AuthGuard],component:ViewprofileComponent_admin},
+    {path:'view_profile/:id',canActivate:[AuthGuardadmin],component:ViewprofileComponent_admin},
 
-    { path: 'add_product', canActivate:[AuthGuard],component: Admin_IMGPRODUCComponent },
-    { path: 'show_product', canActivate:[AuthGuard],component:  ShowAllProductComponent},
-    { path: 'notification', canActivate:[AuthGuard],component:  NotificationComponent},
-    { path: 'desh', canActivate:[AuthGuard],component:  DeshboredComponent},
-
-  
+    { path: 'add_product', canActivate:[AuthGuardadmin],component: Admin_IMGPRODUCComponent },
+    { path: 'show_product', canActivate:[AuthGuardadmin],component:  ShowAllProductComponent},
+    { path: 'notification', canActivate:[AuthGuardadmin],component:  NotificationComponent},
+    { path: 'desh', canActivate:[AuthGuardadmin],component:  DeshboredComponent},
   ] },
-
-
 //  { path: 'login', component: Login2Component, outlet: 'userOutlet' },
 
   { path: 'login', component: Login2Component },
@@ -58,14 +62,11 @@ children:[
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
   { path: '', component: AppComponent, outlet: 'userOutlet' },
-
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-
 export class AppRoutingModule {
 
  }

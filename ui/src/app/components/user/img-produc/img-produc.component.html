@@ -274,39 +274,41 @@
             <div class="block2-pic hov-img0">
               <!-- Use Angular property binding to dynamically set the image source -->
               <img [src]="'http://localhost:6001' + img.image" alt="{{ img.img_name }}" height="400px" width="300px" >
-            
               <!-- <a [routerLink]="['user/prodect', img.image,img._id]" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                 Quick Views
               </a> -->
               <a [routerLink]="['/user/prodect', img.image, img._id]" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                 Quick Views
               </a>
-              
               <!-- <a class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" [routerLink]="'/user/prodect/' + img.image">
               
               
                 Quick View
               </a> -->
             </div>
-          
             <div class="block2-txt flex-w flex-t p-t-14">
               <div class="block2-txt-child1 flex-col-l">
                 <!-- Use Angular property binding to dynamically set the product name -->
                 <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
                   {{ img.img_name }}
                 </a>
-            
                 <!-- Use Angular property binding to dynamically set the product price -->
                 <span class="stext-105 cl3">
                   {{ img.img_price }}
                 </span>
               </div>
-            
-              <div class="block2-txt-child2 flex-r p-t-3">
-                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                  <div class="block2-txt-child2 flex-r p-t-3">
+                <!-- <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
                   <img class="icon-heart1 dis-block trans-04" src="assets/images/icons/icon-heart-01.png" alt="ICON">
                   <img class="icon-heart2 dis-block trans-04 ab-t-l" src="assets/images/icons/icon-heart-02.png" alt="ICON">
-                </a>
+                </a> -->
+                <ng-container  *ngFor="let likes of likes_all_product"  >
+                <a  class="btn-addwish-b2  pos-relative js-addwish-b2"  >
+                      <!-- <img *ngIf="!likes.like && likes.image==img.img_name" class="icon-heart1 dis-block trans-04" src="assets/images/icons/icon-heart-01.png" alt="ICON">  -->
+                      <img *ngIf="!likes.like && likes.image==img.image" (click)="toggleLike(img.image,'true',likes._id)" class="icon-heart1 dis-block trans-04" src="assets/images/icons/icon-heart-01.png" alt="ICON"> 
+                      <img *ngIf="likes.like && likes.image==img.image" class="icon-heart1 dis-block trans-04 " (click)="toggleLike(img.image,'false',likes._id)" src="assets/images/icons/icon-heart-02.png" alt="ICON">
+                   </a>
+                    </ng-container>
               </div>
             </div>
           </div>
@@ -348,6 +350,7 @@
     </div>
 
     <div class="row isotope-grid" *ngIf=" Woman_filter_toggle" >
+       
         <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women" *ngFor="let img of filter_data_woman">
             <div class="block2" >
                 <div class="block2-pic hov-img0">
@@ -356,8 +359,8 @@
                   <!-- <a [routerLink]="['/detail', img.image,img._id]" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                     Quick View
                   </a> -->
-                  <a  class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                    Quick View
+                  <a [routerLink]="['/user/prodect', img.image, img._id]" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                    Quick Viewss
                   </a>
                 </div>
               
@@ -372,19 +375,25 @@
                     </span>
                   </div>
                 
-                  <div class="block2-txt-child2 flex-r p-t-3">
+                  <!-- <div class="block2-txt-child2 flex-r p-t-3">
                     <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
                       <img class="icon-heart1 dis-block trans-04" src="assets/images/icons/icon-heart-01.png" alt="ICON">
                       <img class="icon-heart2 dis-block trans-04 ab-t-l" src="assets/images/icons/icon-heart-02.png" alt="ICON">
                     </a>
-                  </div>
+                  </div> -->         
+                  <ng-container  *ngFor="let likes of likes_all_product"  >
+                    <a  class="btn-addwish-b2  pos-relative js-addwish-b2"  >
+                          <!-- <img *ngIf="!likes.like && likes.image==img.img_name" class="icon-heart1 dis-block trans-04" src="assets/images/icons/icon-heart-01.png" alt="ICON">  -->
+                          <img *ngIf="!likes.like && likes.image==img.image" (click)="toggleLike(img.image,'true',likes._id)" class="icon-heart1 dis-block trans-04" src="assets/images/icons/icon-heart-01.png" alt="ICON"> 
+                          <img *ngIf="likes.like && likes.image==img.image" class="icon-heart1 dis-block trans-04 " (click)="toggleLike(img.image,'false',likes._id)" src="assets/images/icons/icon-heart-02.png" alt="ICON">
+                       </a>
+                        </ng-container>
+                 
                 </div>
               </div>
               
-              
-
+        
         </div>
-    
       
         </div>
 

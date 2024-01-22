@@ -66,7 +66,6 @@ constructor(private route: ActivatedRoute, private userservice: UserserviceServi
           if(data.success==true)
           {
            
-            // this._location.back();
             window.location.reload()
 
           }

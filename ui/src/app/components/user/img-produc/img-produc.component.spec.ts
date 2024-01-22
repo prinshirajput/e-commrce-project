@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IMGPRODUCComponent } from './img-produc.component';
+import { IMGPRODUCComponent2} from './img-produc.component';
 
 describe('IMGPRODUCComponent', () => {
-  let component: IMGPRODUCComponent;
-  let fixture: ComponentFixture<IMGPRODUCComponent>;
+  let component: IMGPRODUCComponent2;
+  let fixture: ComponentFixture<IMGPRODUCComponent2>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [IMGPRODUCComponent]
+      declarations: [IMGPRODUCComponent2]
     });
-    fixture = TestBed.createComponent(IMGPRODUCComponent);
+    fixture = TestBed.createComponent(IMGPRODUCComponent2);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

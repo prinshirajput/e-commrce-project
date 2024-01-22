@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, OnDestroy, OnInit, Output  } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -8,8 +8,10 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './img-produc.component.html',
   styleUrls: ['./img-produc.component.css']
 })
-export class IMGPRODUCComponent implements OnInit {
-  
+export class IMGPRODUCComponent2 implements OnInit,OnDestroy {
+   likeInterval: any;
+
+
   women_prodect=false;
   loginForm: any = FormGroup;
   APIURLf = 'http://localhost:6001/admin/add';
@@ -23,7 +25,10 @@ export class IMGPRODUCComponent implements OnInit {
   imges:any;
   Woman_filter_toggle=false
   filter_data_woman:any=[];
-  
+  liked:any=false
+  brakloop=true;
+  likes_all_product:any=[]
+  nav_like_show:any=0;
   constructor( private fb: FormBuilder, 
               private http :HttpClient, 
               private router :Router,
@@ -35,12 +40,24 @@ ngOnInit(): void {
  this. createForm()
  this.http.get(this.APIURLg).subscribe((result:any)=>{
  this.imges=result.data
- console.log(this.imges)
+ for(let i in this.imges)
+ {
+
+  const data={
+    "like":"false",
+    "image":this.imges[i].image,
+    "u_id":localStorage.getItem("id")
+  }
+  console.log("data------------>",data)
+  this.http.post('http://localhost:6001/like/add',data).subscribe((result:any)=>{
+    console.log('result',result);
+  });
+ }
 })
-
+ this.likeInterval= setInterval(()=>{
+this.getLike(localStorage.getItem('id'))
+},1000)
 }
-
-
 All_product_show()
 {
   this.women_prodect=false
@@ -118,5 +135,56 @@ this.filter_data_woman=[]
   }
   console.log(this.filter_data_woman)
 }
+
+toggleLike(imageName:any,value:any,id:any): void {
+  this.liked=value;
+  console.log(this.liked)
+ const data={
+    "like":this.liked,
+    "image":imageName,
+    "id":id
+    // "u_id":localStorage.getItem("id")
+  }
+  this.http.put('http://localhost:6001/like/update',data).subscribe((result:any)=>{
+    console.log('result',result);
+   
+  });
+
+
+ 
+}
+ngOnDestroy(): void {
+  // Clear the interval when the component is destroyed
+  clearInterval(this.likeInterval);
+}
+
+getLike(u_id: any): void {
+  // this.nav_like_show=0;
+  this.http.get(`http://localhost:6001/like/get/${u_id}`).subscribe((result: any) => {
+    this.nav_like_show=0;
+    this.likes_all_product = result.data;
+    for(let i in this.likes_all_product)
+    {
+      if(result.data[i].like)
+      {
+        this.nav_like_show++;
+        console.log("this_all_product",result.data[i].like)
+      }
+    }
+    setTimeout(()=>{
+      localStorage.setItem('like',this.nav_like_show)
+    },1000)
+    
+
+    
+
+
+
+  });
+
+}
+
+
+
 
 }
